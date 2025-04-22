@@ -25,7 +25,8 @@
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIPY_REDIRECT_URI`  
-  `SPOTIPY_REDIRECT_URI` は Dashboard で設定する Redirect URI と一致させる必要があります。例えば、`http://127.0.0.1:8888/` などとしてください。
+  `SPOTIPY_REDIRECT_URI` は Dashboard で設定する Redirect URI と一致させる必要があります。例えば、`http://127.0.0.1:8888/` などとしてください。  
+  **注意: `SPOTIPY_` で始まります。`SPOTIFI_` ではありません。FとPの違いに注意してください。**
 - `MCP_SPOTIFY_PATH`
 
 ## MCP サーバーのインストール
