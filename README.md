@@ -10,6 +10,16 @@
 
 ## 必要な環境変数
 
+### SPOTIFY_CLIENT_ID と SPOTIFY_CLIENT_SECRET の取得方法
+
+1. [Spotify Developer Dashboard](https://developer.spotify.com/) にログインします。アカウントがない場合は作成してください。
+2. `Dashboard` で `Create app` をクリックし、必要事項を入力します。
+   - `アプリ名`
+   - `アプリの説明`
+   - `リダイレクトURL`
+   - `API / SDK` の同意にチェックを入れ、`保存`をクリックします。
+3. 作成したアプリの `Home` の `Settings` から `CLIENT ID` と `CLIENT SECRET` を確認できます。
+
 以下の環境変数を設定する必要があります。`.env`ファイルを使用して設定することができます。
 
 - `SPOTIFY_CLIENT_ID`
