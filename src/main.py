@@ -18,8 +18,13 @@ async def run_agent(
         instructions="ユーザーの指示にしたがって Spotify を操作して",
         mcp_servers=mcp_servers,
     )
+    # メッセージを作成
     history.append({"role": "user", "content": message})
+
+    # エージェントを実行
     result = await Runner.run(starting_agent=agent, input=history)
+
+    # 結果を処理
     print(f"[応答] {result.final_output}")
     return result.to_input_list()
 
@@ -28,19 +33,32 @@ async def run(spotify_mcp: MCPServer):
     """エージェントの定義と実行"""
 
     query_artist = "竹内まりや"
+    track_theme = "切ない失恋"
     count = 3
 
     history = []
     commands = [
-        (f"{query_artist}の代表曲を{count}曲教えて。テーマは失恋です。", False),
-        (f"Spotify で artist:{query_artist} の先ほどの{count}曲を検索して", True),
-        (f"{count}曲をキューに設定してアクティブなデバイスで再生して", True),
+        (
+            f"{query_artist}の代表曲を{count}曲教えて。テーマは{track_theme}です。",
+            False,
+            1,
+        ),
+        (f"Spotify で artist:{query_artist} の先ほどの{count}曲を検索して", True, 1),
+        ("Spotify の再生キューをすべてスキップして", True, 5),
+        ("Spotify の再生キューが空になったことを確認して", True, 1),
+        (
+            f"{count}曲をキューに設定してアクティブなデバイスで再生して。"
+            "もし現在再生中の曲がある場合はスキップして",
+            True,
+            1,
+        ),
     ]
-    for message, use_mcp in commands:
+    for message, use_mcp, wait in commands:
         print(f"[実行中] {message}")
         mcp_servers = [spotify_mcp] if use_mcp else []
         history = await run_agent(history, message, mcp_servers)
         print(f"[応答の詳細]: {history[-1]}")
+        await asyncio.sleep(wait)
 
 
 async def main():
