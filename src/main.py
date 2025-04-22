@@ -1,23 +1,40 @@
 import asyncio
+import sys
 from typing import Dict, Any, List
 import os
 from dotenv import load_dotenv
 
+import random
 from agents import Agent, Runner, gen_trace_id, trace
 from agents.mcp import MCPServer, MCPServerStdio
+import textwrap
 
 load_dotenv()
 
+DEFAULT_INSTRUCTION = """
+    あなたは出版された音楽に関するエキスパートです。
+    ユーザーのリクエストにシンプルな回答を与えて。
+    必要に応じて Spotify API を操作して。
+    SpotifySearch は文字列一致の傾向が強いです。
+    そのため、クエリ文字列を短くして一覧を取得し、
+    LLMが最適なものを選んで。
+"""
+
 
 async def run_agent(
-    history: Dict[str, Any], message: str, mcp_servers: List[MCPServer]
+    history: Dict[str, Any],
+    message: str,
+    mcp_servers: List[MCPServer],
+    model_name: str = "o4-mini",
 ):
     # エージェントを定義
     agent = Agent(
-        name="アシスタント",
-        instructions="ユーザーの指示にしたがって Spotify を操作して",
+        name="再生音楽のエキスパート",
+        instructions=textwrap.dedent(DEFAULT_INSTRUCTION),
         mcp_servers=mcp_servers,
+        model=model_name,
     )
+
     # メッセージを作成
     history.append({"role": "user", "content": message})
 
@@ -29,28 +46,30 @@ async def run_agent(
     return result.to_input_list()
 
 
-async def run(spotify_mcp: MCPServer):
+async def run(spotify_mcp: MCPServer, recommend_tracks: int = 3):
     """エージェントの定義と実行"""
 
-    query_artist = "竹内まりや"
-    track_theme = "切ない失恋"
-    count = 3
+    query_artist, track_theme = random.choice(
+        [
+            ("竹内まりや", "切ない失恋"),
+            ("Jeff Beck", "ノリノリのライブトラック"),
+            ("The brecker brothers", "ゴリゴリのソロが聞ける曲"),
+        ]
+    )
 
     history = []
     commands = [
         (
-            f"{query_artist}の代表曲を{count}曲教えて。テーマは{track_theme}です。",
+            f"「{query_artist}」の曲を{recommend_tracks}曲おしえて。"
+            f"テーマは「{track_theme}」です。",
             False,
-            1,
+            0,
         ),
-        (f"Spotify で artist:{query_artist} の先ほどの{count}曲を検索して", True, 1),
-        ("Spotify の再生キューをすべてスキップして", True, 5),
-        ("Spotify の再生キューが空になったことを確認して", True, 1),
         (
-            f"{count}曲をキューに設定してアクティブなデバイスで再生して。"
-            "もし現在再生中の曲がある場合はスキップして",
+            f"Spotify で新しいセッションを作り artist:{query_artist} の"
+            f"先ほどの{recommend_tracks}曲を再生して",
             True,
-            1,
+            0,
         ),
     ]
     for message, use_mcp, wait in commands:
@@ -59,6 +78,16 @@ async def run(spotify_mcp: MCPServer):
         history = await run_agent(history, message, mcp_servers)
         print(f"[応答の詳細]: {history[-1]}")
         await asyncio.sleep(wait)
+
+    print("ここからはあなたのターンです。AIエージェントに指示をだし続けて下さい")
+    while True:
+        try:
+            message = input("何します？> ")
+        except EOFError:
+            print("\n終了します。またね。")
+            sys.exit(0)
+        if message:
+            await run_agent([], message, [spotify_mcp])
 
 
 async def main():
@@ -77,9 +106,9 @@ async def main():
             "SPOTIPY_REDIRECT_URI": os.getenv("SPOTIPY_REDIRECT_URI"),
         },
     }
-    async with MCPServerStdio(name="mcp spotify", params=params) as server:
+    async with MCPServerStdio(name="spotify mcp server", params=params) as server:
         trace_id = gen_trace_id()
-        with trace(workflow_name="mcp spotify", trace_id=trace_id):
+        with trace(workflow_name="wave explorer", trace_id=trace_id):
             print(
                 "トレース情報: https://platform.openai.com/traces/trace"
                 f"?trace_id={trace_id}\n"
