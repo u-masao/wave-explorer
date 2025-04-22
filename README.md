@@ -17,6 +17,14 @@
 - `SPOTIPY_REDIRECT_URI`
 - `MCP_SPOTIFY_PATH`
 
+## MCP サーバーのインストール
+
+Wave Explorer を実行する前に、MCP サーバーをインストールする必要があります。以下のコマンドを使用して、MCP サーバーをクローンしてください。
+
+```bash
+git clone https://github.com/varunneal/spotify-mcp.git ../spotify-mcp/
+```
+
 ## 実行方法
 
 1. 必要なPythonパッケージをインストールします。
