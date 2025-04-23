@@ -1,0 +1,167 @@
+$ uv run python -m src.main
+トレース情報: https://platform.openai.com/traces/trace?trace_id=trace_12c909be94074618b9ede3febea1e26d
+
+[実行中] 「The brecker brothers」の曲を3曲おしえて。テーマは「ゴリゴリのソロが聞ける曲」です。
+[応答] <assistant spotifysearch="Brecker Brothers" limit=20 />
+
+以下の3曲をおすすめします。いずれもゴリゴリのソロが堪能できます。
+
+1. Some Skunk Funk  
+   • アルバム: The Brecker Bros. (1975)  
+   • ポイント: マイケル・ブレッカーの超絶テナー・ソロとランディ・ブレッカーのトランペットが火花を散らす代表曲。
+
+2. Sponge  
+   • アルバム: Heavy Metal Be-Bop (1978)  
+   • ポイント: ジャズ・ファンク全開のリフの上で繰り広げられる両兄弟のタイトかつアグレッシブなソロ。
+
+3. Straphangin’  
+   • アルバム: Detente (1981)  
+   • ポイント: 複雑なリズム・チェンジに乗って炸裂するソロがクセになる1曲。
+[応答の詳細]: {'id': 'msg_68083852e74c81918c1d39f81b4ed99b09ba3d65ccc21935', 'content': [{'annotations': [], 'text': '<assistant spotifysearch="Brecker Brothers" limit=20 />\n\n以下の3曲をおすすめします。いずれもゴリゴリのソロが堪能できます。\n\n1. Some Skunk Funk  \n   • アルバム: The Brecker Bros. (1975)  \n   • ポイント: マイケル・ブレッカーの超絶テナー・ソロとランディ・ブレッカーのトランペットが火花を散らす代表曲。\n\n2. Sponge  \n   • アルバム: Heavy Metal Be-Bop (1978)  \n   • ポイント: ジャズ・ファンク全開のリフの上で繰り広げられる両兄弟のタイトかつアグレッシブなソロ。\n\n3. Straphangin’  \n   • アルバム: Detente (1981)  \n   • ポイント: 複雑なリズム・チェンジに乗って炸裂するソロがクセになる1曲。', 'type': 'output_text'}], 'role': 'assistant', 'status': 'completed', 'type': 'message'}
+[実行中] Spotify で新しいセッションを作り artist:The brecker brothers の先ほどの3曲を再生して
+[INFO] Listing available tools
+[INFO] Available tools: ['SpotifyPlayback', 'SpotifySearch', 'SpotifyQueue', 'SpotifyGetInfo']
+[INFO] Tool called: SpotifySearch with arguments: {'query': 'Brecker Brothers Some Skunk Funk', 'qtype': 'track', 'limit': 1}
+[INFO] Performing search with arguments: {'query': 'Brecker Brothers Some Skunk Funk', 'qtype': 'track', 'limit': 1}
+[INFO] Auth check result: valid
+[INFO] Auth check result: valid
+[INFO] Search completed successfully.
+[INFO] Tool called: SpotifySearch with arguments: {'query': 'Brecker Brothers Sponge', 'qtype': 'track', 'limit': 1}
+[INFO] Performing search with arguments: {'query': 'Brecker Brothers Sponge', 'qtype': 'track', 'limit': 1}
+[INFO] Auth check result: valid
+[INFO] Search completed successfully.
+[INFO] Tool called: SpotifySearch with arguments: {'query': 'Brecker Brothers Straphangin', 'qtype': 'track', 'limit': 1}
+[INFO] Performing search with arguments: {'query': 'Brecker Brothers Straphangin', 'qtype': 'track', 'limit': 1}
+[INFO] Auth check result: valid
+[INFO] Search completed successfully.
+[INFO] Tool called: SpotifyPlayback with arguments: {'action': 'start', 'spotify_uri': 'spotify:track:4cJC5AjLjRUH2qtemrqLbD'}
+[INFO] Starting playback with arguments: {'action': 'start', 'spotify_uri': 'spotify:track:4cJC5AjLjRUH2qtemrqLbD'}
+[INFO] Auth check result: valid
+[INFO] Starting playback for spotify_uri: spotify:track:4cJC5AjLjRUH2qtemrqLbD on None
+[INFO] Starting playback of on None: context_uri=None, uris=['spotify:track:4cJC5AjLjRUH2qtemrqLbD']
+[INFO] Playback result: None
+[INFO] Playback started successfully
+[INFO] Tool called: SpotifyQueue with arguments: {'action': 'add', 'track_id': '7EU6pph0fUURnHjyozWZB5'}
+[INFO] Queue operation with arguments: {'action': 'add', 'track_id': '7EU6pph0fUURnHjyozWZB5'}
+[INFO] Auth check result: valid
+[INFO] Tool called: SpotifyQueue with arguments: {'action': 'add', 'track_id': '4SUjJZSvVtVYwsFjNzltkM'}
+[INFO] Queue operation with arguments: {'action': 'add', 'track_id': '4SUjJZSvVtVYwsFjNzltkM'}
+[INFO] Auth check result: valid
+[応答] 新しいセッションを開始し、以下の3曲を再生・キューに追加しました。
+
+1. 再生中：Some Skunk Funk  
+2. キューに追加：Sponge  
+3. キューに追加：Straphangin’  
+
+お楽しみください！
+[応答の詳細]: {'id': 'msg_6808387669f88191b33a1accfbfeee6609ba3d65ccc21935', 'content': [{'annotations': [], 'text': '新しいセッションを開始し、以下の3曲を再生・キューに追加しました。\n\n1. 再生中：Some Skunk Funk  \n2. キューに追加：Sponge  \n3. キューに追加：Straphangin’  \n\nお楽しみください！', 'type': 'output_text'}], 'role': 'assistant', 'status': 'completed', 'type': 'message'}
+ここからはあなたのターンです。AIエージェントに指示をだし続けて下さい
+何します？> 
+何します？> 
+何します？> 現在のキューを表示して
+[INFO] Listing available tools
+[INFO] Available tools: ['SpotifyPlayback', 'SpotifySearch', 'SpotifyQueue', 'SpotifyGetInfo']
+[INFO] Tool called: SpotifyQueue with arguments: {'action': 'get'}
+[INFO] Queue operation with arguments: {'action': 'get'}
+[INFO] Auth check result: valid
+[INFO] Current track: Some Skunk Funk by The Brecker Brothers
+[応答] 現在のキュー:
+
+再生中:
+1. Some Skunk Funk – The Brecker Brothers
+
+続くキュー:
+2. Sponge – The Brecker Brothers  
+3. Straphangin’ – The Brecker Brothers  
+4. Some Skunk Funk – The Brecker Brothers  
+5. Some Skunk Funk – The Brecker Brothers  
+6. Some Skunk Funk – The Brecker Brothers  
+7. Some Skunk Funk – The Brecker Brothers  
+8. Some Skunk Funk – The Brecker Brothers  
+9. Some Skunk Funk – The Brecker Brothers  
+10. Some Skunk Funk – The Brecker Brothers  
+11. Some Skunk Funk – The Brecker Brothers
+何します？> spotify-mcp の機能一覧を教えて
+[INFO] Listing available tools
+[INFO] Available tools: ['SpotifyPlayback', 'SpotifySearch', 'SpotifyQueue', 'SpotifyGetInfo']
+[応答] Spotify‑MCP（当アシスタント経由で使える Spotify API ラッパー）の主な機能は以下のとおりです。
+
+1. 検索（SpotifySearch）  
+   - track, album, artist, playlist の各種検索  
+   - query（検索語）、qtype（検索対象タイプ）、limit（最大取得件数）指定可  
+
+2. 再生操作（SpotifyPlayback）  
+   - get：現在再生中トラックの情報取得  
+   - start：新規再生 or 一時停止中の再開（spotify_uri 指定で特定トラック／アルバム再生）  
+   - pause：再生の一時停止  
+   - skip：次トラックへスキップ（num_skips でスキップ数指定可能）  
+
+3. キュー管理（SpotifyQueue）  
+   - get：現在の再生キュー取得  
+   - add：指定トラック（track_id）をキューの末尾に追加  
+
+4. 情報取得（SpotifyGetInfo）  
+   - item_uri（トラック／アルバム／アーティスト／プレイリスト URI）を指定して詳細情報を取得  
+   - アルバム・プレイリストなら収録トラック一覧、アーティストならアルバム一覧やトップトラックも取得  
+
+以上を組み合わせて、検索から再生制御、キュー追加、詳細情報取得までひととおりカバーしています。
+何します？> 今再生している曲のアルバムはなに？
+[INFO] Listing available tools
+[INFO] Available tools: ['SpotifyPlayback', 'SpotifySearch', 'SpotifyQueue', 'SpotifyGetInfo']
+[INFO] Tool called: SpotifyPlayback with arguments: {'action': 'get'}
+[INFO] Attempting to get current track
+[INFO] Current track: Some Skunk Funk by The Brecker Brothers
+[INFO] Current track retrieved: Some Skunk Funk
+[INFO] Tool called: SpotifyGetInfo with arguments: {'item_uri': 'spotify:track:4cJC5AjLjRUH2qtemrqLbD'}
+[INFO] Getting item info with arguments: {'item_uri': 'spotify:track:4cJC5AjLjRUH2qtemrqLbD'}
+[応答] 現在再生中の「Some Skunk Funk」が収録されているアルバムは「The Brecker Bros」です。
+何します？> 今再生して今再生している曲が収録されているアルバムを再生して。
+[INFO] Listing available tools
+[INFO] Available tools: ['SpotifyPlayback', 'SpotifySearch', 'SpotifyQueue', 'SpotifyGetInfo']
+[INFO] Tool called: SpotifyPlayback with arguments: {'action': 'get'}
+[INFO] Attempting to get current track
+[INFO] Current track: Some Skunk Funk by The Brecker Brothers
+[INFO] Current track retrieved: Some Skunk Funk
+[INFO] Tool called: SpotifyGetInfo with arguments: {'item_uri': 'spotify:track:4cJC5AjLjRUH2qtemrqLbD'}
+[INFO] Getting item info with arguments: {'item_uri': 'spotify:track:4cJC5AjLjRUH2qtemrqLbD'}
+[INFO] Tool called: SpotifyPlayback with arguments: {'action': 'start', 'spotify_uri': 'spotify:album:3mXY4gBVlEzTk4DVGhFTpZ'}
+[INFO] Starting playback with arguments: {'action': 'start', 'spotify_uri': 'spotify:album:3mXY4gBVlEzTk4DVGhFTpZ'}
+[INFO] Auth check result: valid
+[INFO] Starting playback for spotify_uri: spotify:album:3mXY4gBVlEzTk4DVGhFTpZ on None
+[INFO] Starting playback of on None: context_uri=spotify:album:3mXY4gBVlEzTk4DVGhFTpZ, uris=None
+[INFO] Playback result: None
+[INFO] Playback started successfully
+[応答] アルバム「The Brecker Bros」を再生します。
+何します？> 再生キューを表示して
+[INFO] Listing available tools
+[INFO] Available tools: ['SpotifyPlayback', 'SpotifySearch', 'SpotifyQueue', 'SpotifyGetInfo']
+[INFO] Tool called: SpotifyQueue with arguments: {'action': 'get'}
+[INFO] Queue operation with arguments: {'action': 'get'}
+[INFO] Auth check result: valid
+[INFO] Current track: Some Skunk Funk by The Brecker Brothers
+[応答] 現在の再生状況
+• 再生中: “Some Skunk Funk” — The Brecker Brothers
+
+再生キュー（次に再生される順番）
+1. Sponge — The Brecker Brothers  
+2. Straphangin’ — The Brecker Brothers  
+3. Sponge — The Brecker Brothers  
+4. A Creature of Many Faces — The Brecker Brothers  
+5. Twilight — The Brecker Brothers  
+6. Sneakin’ Up Behind You — The Brecker Brothers  
+7. Rocks — The Brecker Brothers  
+8. Levitate — The Brecker Brothers  
+9. Oh My Stars — The Brecker Brothers  
+10. D.B.B. — The Brecker Brothers  
+11. Some Skunk Funk — The Brecker Brothers  
+12. Sponge — The Brecker Brothers  
+13. A Creature of Many Faces — The Brecker Brothers  
+14. Twilight — The Brecker Brothers  
+15. Sneakin’ Up Behind You — The Brecker Brothers  
+16. Rocks — The Brecker Brothers  
+17. Levitate — The Brecker Brothers  
+18. Oh My Stars — The Brecker Brothers  
+19. D.B.B. — The Brecker Brothers
+何します？> 
+終了します。またね。
+
