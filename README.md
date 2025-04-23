@@ -17,6 +17,7 @@
    - `アプリ名`
    - `アプリの説明`
    - `リダイレクトURL`
+     `https://` が要求されますが、`http://127.0.0.1:8888/` などの URI は入力可能です。  
    - `API / SDK` の同意にチェックを入れ、`保存`をクリックします。
    - `APIs used` には `Web Playback SDK` にチェックを入れてください。
 3. 作成したアプリの `Home` の `Settings` から `CLIENT ID` と `CLIENT SECRET` を確認できます。
@@ -26,7 +27,7 @@
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIPY_REDIRECT_URI`  
-  `SPOTIPY_REDIRECT_URI` は Dashboard で設定する Redirect URI と一致させる必要があります。`https://` が要求されますが、`http://127.0.0.1:8888/` などの URI は入力可能です。  
+  `SPOTIPY_REDIRECT_URI` は Dashboard で設定する Redirect URI と一致させる必要があります。
   **注意: `SPOTIPY_` で始まります。`SPOTIFI_` ではありません。FとPの違いに注意してください。**
 - `MCP_SPOTIFY_PATH`
 
