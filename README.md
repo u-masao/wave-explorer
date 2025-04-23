@@ -22,7 +22,12 @@
    - `APIs used` には `Web Playback SDK` にチェックを入れてください。
 3. 作成したアプリの `Home` の `Settings` から `CLIENT ID` と `CLIENT SECRET` を確認できます。
 
-以下の環境変数を設定する必要があります。`.env`ファイルを使用して設定することができます。
+### OpenAI API キーの取得方法
+
+1. [OpenAIのウェブサイト](https://www.openai.com/)にアクセスし、アカウントを作成またはログインします。
+2. ダッシュボードからAPIキーを取得します。
+
+以下の環境変数を設定する必要があります。`.env`ファイルを使用して設定することができます。`.env.example`を参考にしてください。
 
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
