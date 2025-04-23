@@ -17,7 +17,7 @@
 
 ```bash
 https://github.com/u-masao/wave-explorer.git
-cd wave-expolorer
+cd wave-explorer
 ```
 
 ## MCP サーバーのインストール
@@ -49,16 +49,16 @@ git clone https://github.com/varunneal/spotify-mcp.git ../spotify-mcp/
 
 ### 環境変数の設定ファイル
 
-以下の環境変数を設定する必要があります。`.env`ファイルを使用して設定することができます。`.env.example`を参考にしてください。
+以下の環境変数を設定する必要があります。`.env` ファイルを使用して設定することができます。`.env.example` を参考にしてください。
 
 - `OPENAI_API_KEY`
 - `OPENAI_AGENTS_DISABLE_TRACING` OpenAI Platform で Trace したくない場合は 1 にします
 - `MCP_SPOTIFY_PATH` MCP Server のパスです( ../spotify-mc/ としています)
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
-- `SPOTIPY_REDIRECT_URI`  
+- `SPOTIPY_REDIRECT_URI`
   `SPOTIPY_REDIRECT_URI` は Dashboard で設定する Redirect URI と一致させる必要があります。
-  **重要な注意: `SPOTIPY_` で始まります。`SPOTIFI_` ではありません。FとPの違いに注意してください。**
+  **重要な注意: `SPOTIPY_` で始まります。`SPOTIFI_` ではありません。F と P の違いに注意してください。**
 
 ```text:.env.example
 OPENAI_API_KEY=your_api_key
@@ -72,12 +72,12 @@ SPOTIPY_REDIRECT_URI="http://127.0.0.1:8888/" # Spotify APP の設定と一致�
 
 ## 実行方法
 
-1. .env ファイルを確認
-2. 必要なPythonパッケージをインストール
+1. `.env` ファイルを確認
+2. 必要な Python パッケージをインストール
 3. 以下のコマンドを実行してプログラムを開始
 
 ```bash
-cat .env # .env ファイルの内容を表示
+cat .env  # .env ファイルの内容を表示
 uv sync
 uv run python -m src.main
 ```
